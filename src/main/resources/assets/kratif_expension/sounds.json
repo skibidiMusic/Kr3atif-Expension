@@ -1,0 +1,20 @@
+{
+  "borandrenaline": {
+    "subtitle": "subtitles.borandrenaline",
+    "sounds": [
+      {
+        "name": "kratif_expension:randomstuff_2",
+        "stream": false
+      }
+    ]
+  },
+  "headbuzzing": {
+    "subtitle": "subtitles.headbuzzing",
+    "sounds": [
+      {
+        "name": "kratif_expension:headbuzzing",
+        "stream": false
+      }
+    ]
+  }
+}

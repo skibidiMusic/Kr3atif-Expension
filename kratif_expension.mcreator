@@ -1,0 +1,760 @@
+{
+  "mod_elements": [
+    {
+      "name": "BoraniumOre",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/block/boranium_ore.json",
+          "src/main/resources/data/kratif_expension/worldgen/configured_feature/boranium_ore.json",
+          "src/main/resources/assets/kratif_expension/blockstates/boranium_ore.json",
+          "src/main/resources/data/kratif_expension/worldgen/placed_feature/boranium_ore.json",
+          "src/main/java/net/mcreator/kratifexpension/block/BoraniumOreBlock.java",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_ore.json",
+          "src/main/resources/data/kratif_expension/forge/biome_modifier/boranium_ore_biome_modifier.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "RawBoranium",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_boranium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/raw_boranium.json",
+          "src/main/java/net/mcreator/kratifexpension/item/RawBoraniumItem.java"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "BoraniumOreTable",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_ore_table",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/loot_tables/blocks/boranium_ore.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "BoraniumIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_ingot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/item/BoraniumIngotItem.java",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_ingot.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "SmeltingRawBoranium",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smelting_raw_boranium",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/smelting_raw_boranium.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "FastSmeltingRawBoranium",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fast_smelting_raw_boranium",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/fast_smelting_raw_boranium.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "BoraniumSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/item/BoraniumSwordItem.java",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_sword.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "BoraniumSwordRightclickedOnBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_sword_rightclicked_on_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/BoraniumSwordRightclickedOnBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "BoraniumScrap",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_scrap",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/boranium_scrap.json",
+          "src/main/java/net/mcreator/kratifexpension/item/BoraniumScrapItem.java"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "CraftingRawBoranium",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_raw_boranium",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/crafting_raw_boranium.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "MakingBoraniumSword",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_boranium_sword",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_boranium_sword.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "ItemPowerOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_power_on_key_pressed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/ItemPowerOnKeyPressedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "ItemPower",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_power",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/network/ItemPowerMessage.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "SupremeUpgradeSmithingTemplate",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "supreme_upgrade_smithing_template",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/supreme_upgrade_smithing_template.json",
+          "src/main/java/net/mcreator/kratifexpension/item/SupremeUpgradeSmithingTemplateItem.java"
+        ]
+      },
+      "path": "~/Supreme"
+    },
+    {
+      "name": "DuplicatingSupremeUpgrade",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "duplicating_supreme_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/duplicating_supreme_upgrade.json"
+        ]
+      },
+      "path": "~/Supreme"
+    },
+    {
+      "name": "TemporarlyCraftingSupremeUpgrade",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "temporarly_crafting_supreme_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/temporarly_crafting_supreme_upgrade.json"
+        ]
+      },
+      "path": "~/Supreme"
+    },
+    {
+      "name": "BoraniumArmor",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "boranium_armor",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/boranium_armor_helmet.json",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_armor_boots.json",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_armor_leggings.json",
+          "src/main/java/net/mcreator/kratifexpension/item/BoraniumArmorItem.java",
+          "src/main/resources/assets/kratif_expension/models/item/boranium_armor_chestplate.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "Exhaustion",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "exhaustion",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/potion/ExhaustionMobEffect.java"
+        ]
+      },
+      "path": "~/Effects/Exhaustion"
+    },
+    {
+      "name": "MakingBoraniumHelmet",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_boranium_helmet",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_boranium_helmet.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "MakingBoraniumChestplate",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_boranium_chestplate",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_boranium_chestplate.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "MakingBoraniumLeggings",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_boranium_leggings",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_boranium_leggings.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "MakingBoraniumBoots",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_boranium_boots",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_boranium_boots.json"
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "ExhaustionPotion",
+      "type": "potion",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "exhaustion_potion",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Effects/Exhaustion"
+    },
+    {
+      "name": "EgeberiteOre",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egeberite_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/worldgen/placed_feature/egeberite_ore.json",
+          "src/main/resources/data/kratif_expension/loot_tables/blocks/egeberite_ore.json",
+          "src/main/java/net/mcreator/kratifexpension/block/EgeberiteOreBlock.java",
+          "src/main/resources/data/kratif_expension/forge/biome_modifier/egeberite_ore_biome_modifier.json",
+          "src/main/resources/assets/kratif_expension/models/block/egeberite_ore.json",
+          "src/main/resources/assets/kratif_expension/blockstates/egeberite_ore.json",
+          "src/main/resources/data/kratif_expension/worldgen/configured_feature/egeberite_ore.json",
+          "src/main/resources/assets/kratif_expension/models/item/egeberite_ore.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "EgeberitePickaxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egeberite_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/item/EgeberitePickaxeItem.java",
+          "src/main/resources/assets/kratif_expension/models/item/egeberite_pickaxe.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "EgebeRush",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egebe_rush",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/potion/EgebeRushMobEffect.java"
+        ]
+      },
+      "path": "~/Effects/EgebeRush"
+    },
+    {
+      "name": "BorAdrenaline",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bor_adrenaline",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/potion/BorAdrenalineMobEffect.java"
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BorAdrenalineEffectStartedapplied",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bor_adrenaline_effect_startedapplied",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/BorAdrenalineEffectStartedappliedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BorAdrenalineEffectExpires",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bor_adrenaline_effect_expires",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/BorAdrenalineEffectExpiresProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BorAdrenalineActiveTickCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bor_adrenaline_active_tick_condition",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/BorAdrenalineActiveTickConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BoraniumSwordRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boranium_sword_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/BoraniumSwordRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Ores/Boranium"
+    },
+    {
+      "name": "EgeberiteGobbet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egeberite_gobbet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/egeberite_gobbet.json",
+          "src/main/java/net/mcreator/kratifexpension/item/EgeberiteGobbetItem.java"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "RawEgeberite",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_egeberite",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/models/item/raw_egeberite.json",
+          "src/main/java/net/mcreator/kratifexpension/item/RawEgeberiteItem.java"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "Egeberite",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egeberite",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/item/EgeberiteItem.java",
+          "src/main/resources/assets/kratif_expension/models/item/egeberite.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "MakingEgeberitePickaxe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_egeberite_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_egeberite_pickaxe.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "MakingRawEgeberite",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "making_raw_egeberite",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/making_raw_egeberite.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "SmeltingRawEgeberite",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smelting_raw_egeberite",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/smelting_raw_egeberite.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "FastSmeltingRawEgeberite",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fast_smelting_raw_egeberite",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/kratif_expension/recipes/fast_smelting_raw_egeberite.json"
+        ]
+      },
+      "path": "~/Ores/Egeberite"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [
+    {
+      "name": "borandrenaline",
+      "files": [
+        "randomstuff_2"
+      ],
+      "category": "player",
+      "subtitle": "Those Who Know ☠"
+    },
+    {
+      "name": "headbuzzing",
+      "files": [
+        "headbuzzing"
+      ],
+      "category": "player",
+      "subtitle": "Head Buzzing Sounds"
+    }
+  ],
+  "tag_elements": {
+    "BLOCKS:minecraft:needs_diamond_tool": [
+      "~CUSTOM:EgeberiteOre",
+      "~CUSTOM:BoraniumOre"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:EgeberiteOre",
+      "~CUSTOM:BoraniumOre"
+    ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:EgeberitePickaxe"
+    ],
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:BoraniumSword"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "effect.kratif_expension.exhaustion": "Exhaustion",
+      "effect.kratif_expension.egebe_rush": "Egebe Rush",
+      "item.kratif_expension.egeberite_pickaxe": "Egeberite Pickaxe",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
+      "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
+      "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_1": "",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_0": "Supreme Upgrade",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_5": " Boranium Ingot...",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_4": "Ingredients:",
+      "item.kratif_expension.boranium_armor_chestplate": "Boranium Chestplate",
+      "item.kratif_expension.boranium_scrap": "Boranium Scrap",
+      "item.kratif_expension.boranium_armor_boots": "Boranium Boots",
+      "item.kratif_expension.supreme_upgrade_smithing_template": "Supreme Smithing Template",
+      "subtitles.headbuzzing": "Head Buzzing Sounds",
+      "item.kratif_expension.raw_boranium": "Raw Boranium",
+      "block.kratif_expension.egeberite_ore": "Egeberite Ore",
+      "subtitles.borandrenaline": "Those Who Know ☠",
+      "item.minecraft.lingering_potion.effect.exhaustion_potion": "Lingering Potion of Exhaustion",
+      "block.kratif_expension.boranium_ore": "Boranium Ore",
+      "item.minecraft.tipped_arrow.effect.exhaustion_potion": "Arrow of Exhaustion",
+      "key.kratif_expension.item_power": "Item Power",
+      "item.kratif_expension.boranium_armor_leggings": "Boranium Leggings",
+      "item.kratif_expension.boranium_armor_helmet": "Boranium Helmet",
+      "item.kratif_expension.raw_egeberite": "Raw Egeberite",
+      "item.kratif_expension.egeberite": "Egeberite",
+      "item.kratif_expension.boranium_sword": "Boranium Sword",
+      "effect.kratif_expension.bor_adrenaline": "Bor Adrenaline",
+      "item.kratif_expension.boranium_ingot": "Boranium Ingot",
+      "item.minecraft.splash_potion.effect.exhaustion_potion": "Splash Potion of Exhaustion"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Supreme",
+        "children": []
+      },
+      {
+        "name": "Keybinds",
+        "children": []
+      },
+      {
+        "name": "Ores",
+        "children": [
+          {
+            "name": "Boranium",
+            "children": []
+          },
+          {
+            "name": "Egeberite",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Effects",
+        "children": [
+          {
+            "name": "Boradrenalin",
+            "children": []
+          },
+          {
+            "name": "Exhaustion",
+            "children": []
+          },
+          {
+            "name": "EgebeRush",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "kratif_expension",
+    "modName": "Kr3atif Expension",
+    "version": "1.0.0",
+    "author": "DulDu, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.kratifexpension"
+  },
+  "mcreatorVersion": 202400452410
+}

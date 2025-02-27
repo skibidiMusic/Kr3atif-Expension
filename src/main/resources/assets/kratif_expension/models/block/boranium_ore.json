@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "kratif_expension:block/boranium_ore",
+    "particle": "kratif_expension:block/boranium_ore"
+  },
+  "render_type": "solid"
+}

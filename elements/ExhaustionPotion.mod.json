@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Exhaustion",
+    "splashName": "Splash Potion of Exhaustion",
+    "lingeringName": "Lingering Potion of Exhaustion",
+    "arrowName": "Arrow of Exhaustion",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Exhaustion"
+        },
+        "duration": 3600,
+        "infinite": false,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

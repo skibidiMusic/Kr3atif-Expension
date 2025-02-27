@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "kratif_expension:supreme_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "addition": {
+    "item": "kratif_expension:boranium_ingot"
+  },
+  "result": {
+    "item": "kratif_expension:boranium_sword"
+  }
+}

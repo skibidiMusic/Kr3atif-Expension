@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Blasting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 24.0,
+    "cookingTime": 300,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "blastingInputStack": {
+      "value": "CUSTOM:RawBoranium"
+    },
+    "blastingReturnStack": {
+      "value": "CUSTOM:BoraniumIngot"
+    },
+    "name": "fast_smelting_raw_boranium",
+    "namespace": "mod"
+  }
+}
