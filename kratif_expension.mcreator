@@ -382,7 +382,7 @@
       "name": "EgebeRush",
       "type": "potioneffect",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "egebe_rush",
       "metadata": {
         "files": [
@@ -625,6 +625,95 @@
         ]
       },
       "path": "~/Ores/Egeberite"
+    },
+    {
+      "name": "EgebeRushEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "egebe_rush_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/EgebeRushEffectProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Effects/EgebeRush"
+    },
+    {
+      "name": "EgebeRushedEffectStartedapplied",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egebe_rushed_effect_startedapplied",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/EgebeRushedEffectStartedappliedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Effects/EgebebeRushed"
+    },
+    {
+      "name": "EgebeRushedOnEffectActiveTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egebe_rushed_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/EgebeRushedOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "EgebeRushed",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egebe_rushed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/potion/EgebeRushedMobEffect.java"
+        ]
+      },
+      "path": "~/Effects/EgebebeRushed"
     }
   ],
   "variable_elements": [],
@@ -670,10 +759,11 @@
       "item.kratif_expension.egeberite_pickaxe": "Egeberite Pickaxe",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
       "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
-      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_1": "",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_0": "Supreme Upgrade",
+      "effect.kratif_expension.egebe_rushed": "Egebe Rushed",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_5": " Boranium Ingot...",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_4": "Ingredients:",
       "item.kratif_expension.boranium_armor_chestplate": "Boranium Chestplate",
@@ -735,6 +825,10 @@
           },
           {
             "name": "EgebeRush",
+            "children": []
+          },
+          {
+            "name": "EgebebeRushed",
             "children": []
           }
         ]

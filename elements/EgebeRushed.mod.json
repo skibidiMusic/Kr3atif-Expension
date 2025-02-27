@@ -1,0 +1,41 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Egebe Rushed",
+    "icon": "rushedbyegeberk",
+    "color": {
+      "value": -16751104,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "mobEffectCategory": "HARMFUL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredByMilk": true,
+    "isProtectedByTotem": true,
+    "isCuredbyHoney": false,
+    "modifiers": [
+      {
+        "attribute": {
+          "value": "MOVEMENT_SPEED"
+        },
+        "amount": -0.25,
+        "operation": "ADD_MULTIPLIED_TOTAL"
+      },
+      {
+        "attribute": {
+          "value": "JUMP_STRENGTH"
+        },
+        "amount": -0.2,
+        "operation": "ADD_MULTIPLIED_TOTAL"
+      }
+    ],
+    "onStarted": {
+      "name": "EgebeRushedEffectStartedapplied"
+    },
+    "onActiveTick": {
+      "name": "EgebeRushedOnEffectActiveTick"
+    }
+  }
+}

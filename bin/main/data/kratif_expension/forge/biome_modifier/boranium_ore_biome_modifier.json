@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_badlands",
+  "features": "kratif_expension:boranium_ore",
+  "step": "underground_ores"
+}

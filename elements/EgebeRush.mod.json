@@ -15,6 +15,15 @@
     "isCuredByMilk": true,
     "isProtectedByTotem": false,
     "isCuredbyHoney": false,
-    "modifiers": []
+    "modifiers": [],
+    "onStarted": {
+      "name": "EgebeRushEffect"
+    },
+    "onActiveTick": {
+      "name": "EgebeRushEffect"
+    },
+    "onExpired": {
+      "name": "EgebeRushEffect"
+    }
   }
 }

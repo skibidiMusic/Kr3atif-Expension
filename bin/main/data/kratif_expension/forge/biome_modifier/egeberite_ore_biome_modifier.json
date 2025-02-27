@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": {
+    "type": "forge:any"
+  },
+  "features": "kratif_expension:egeberite_ore",
+  "step": "underground_ores"
+}
