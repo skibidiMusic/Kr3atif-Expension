@@ -395,7 +395,7 @@
       "name": "BorAdrenaline",
       "type": "potioneffect",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "bor_adrenaline",
       "metadata": {
         "files": [
@@ -478,7 +478,7 @@
       "name": "BorAdrenalineActiveTickCondition",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "bor_adrenaline_active_tick_condition",
       "metadata": {
         "files": [
@@ -714,6 +714,20 @@
         ]
       },
       "path": "~/Effects/EgebebeRushed"
+    },
+    {
+      "name": "EgeberushWindParticle",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "egeberush_wind_particle",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/particles/egeberush_wind_particle.json",
+          "src/main/java/net/mcreator/kratifexpension/client/particle/EgeberushWindParticleParticle.java"
+        ]
+      },
+      "path": "~/Effects/EgebeRush"
     }
   ],
   "variable_elements": [],
@@ -733,6 +747,14 @@
       ],
       "category": "player",
       "subtitle": "Head Buzzing Sounds"
+    },
+    {
+      "name": "egeberkwindsound",
+      "files": [
+        "wind_sound_effect"
+      ],
+      "category": "ambient",
+      "subtitle": "Egeberks wind 🙏"
     }
   ],
   "tag_elements": {
@@ -757,6 +779,7 @@
       "effect.kratif_expension.exhaustion": "Exhaustion",
       "effect.kratif_expension.egebe_rush": "Egebe Rush",
       "item.kratif_expension.egeberite_pickaxe": "Egeberite Pickaxe",
+      "subtitles.egeberkwindsound": "Egeberks wind 🙏",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
       "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
       "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",

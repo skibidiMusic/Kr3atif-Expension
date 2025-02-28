@@ -20,6 +20,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.mcreator.kratifexpension.init.KratifExpensionModTabs;
 import net.mcreator.kratifexpension.init.KratifExpensionModSounds;
 import net.mcreator.kratifexpension.init.KratifExpensionModPotions;
+import net.mcreator.kratifexpension.init.KratifExpensionModParticleTypes;
 import net.mcreator.kratifexpension.init.KratifExpensionModMobEffects;
 import net.mcreator.kratifexpension.init.KratifExpensionModItems;
 import net.mcreator.kratifexpension.init.KratifExpensionModBlocks;
@@ -52,6 +53,8 @@ public class KratifExpensionMod {
 
 		KratifExpensionModMobEffects.REGISTRY.register(bus);
 		KratifExpensionModPotions.REGISTRY.register(bus);
+
+		KratifExpensionModParticleTypes.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

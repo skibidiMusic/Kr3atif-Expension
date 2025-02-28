@@ -17,4 +17,5 @@ public class KratifExpensionModSounds {
 	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, KratifExpensionMod.MODID);
 	public static final RegistryObject<SoundEvent> BORANDRENALINE = REGISTRY.register("borandrenaline", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "borandrenaline")));
 	public static final RegistryObject<SoundEvent> HEADBUZZING = REGISTRY.register("headbuzzing", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "headbuzzing")));
+	public static final RegistryObject<SoundEvent> EGEBERKWINDSOUND = REGISTRY.register("egeberkwindsound", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "egeberkwindsound")));
 }

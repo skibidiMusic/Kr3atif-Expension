@@ -1,0 +1,23 @@
+{
+  "_fv": 73,
+  "_type": "particle",
+  "definition": {
+    "texture": "egeberk_wind",
+    "animate": true,
+    "frameDuration": 1,
+    "width": 0.0,
+    "height": 0.0,
+    "scale": {
+      "fixedValue": 5.0
+    },
+    "speedFactor": 1.0,
+    "gravity": -0.4,
+    "maxAge": 32,
+    "maxAgeDiff": 0,
+    "angularVelocity": 0.0,
+    "angularAcceleration": 0.0,
+    "canCollide": false,
+    "alwaysShow": false,
+    "renderType": "OPAQUE"
+  }
+}
