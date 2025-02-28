@@ -749,12 +749,20 @@
       "subtitle": "Head Buzzing Sounds"
     },
     {
-      "name": "egeberkwindsound",
+      "name": "egeberkchargeup",
       "files": [
-        "wind_sound_effect"
+        "378173__ghettovan__windexplode"
       ],
       "category": "ambient",
-      "subtitle": "Egeberks wind 🙏"
+      "subtitle": "egeberk winds up"
+    },
+    {
+      "name": "windexplosion",
+      "files": [
+        "322485__liamg_sfx__explosion-11"
+      ],
+      "category": "hostile",
+      "subtitle": "egeberk wind explosion"
     }
   ],
   "tag_elements": {
@@ -782,8 +790,8 @@
       "subtitles.egeberkwindsound": "Egeberks wind 🙏",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
       "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
-      "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
+      "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_1": "",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_0": "Supreme Upgrade",
       "effect.kratif_expension.egebe_rushed": "Egebe Rushed",
@@ -793,6 +801,7 @@
       "item.kratif_expension.boranium_scrap": "Boranium Scrap",
       "item.kratif_expension.boranium_armor_boots": "Boranium Boots",
       "item.kratif_expension.supreme_upgrade_smithing_template": "Supreme Smithing Template",
+      "subtitles.egeberkchargeup": "egeberk winds up",
       "subtitles.headbuzzing": "Head Buzzing Sounds",
       "item.kratif_expension.raw_boranium": "Raw Boranium",
       "block.kratif_expension.egeberite_ore": "Egeberite Ore",
@@ -808,7 +817,8 @@
       "item.kratif_expension.boranium_sword": "Boranium Sword",
       "effect.kratif_expension.bor_adrenaline": "Bor Adrenaline",
       "item.kratif_expension.boranium_ingot": "Boranium Ingot",
-      "item.minecraft.splash_potion.effect.exhaustion_potion": "Splash Potion of Exhaustion"
+      "item.minecraft.splash_potion.effect.exhaustion_potion": "Splash Potion of Exhaustion",
+      "subtitles.windexplosion": "egeberk wind explosion"
     }
   },
   "foldersRoot": {

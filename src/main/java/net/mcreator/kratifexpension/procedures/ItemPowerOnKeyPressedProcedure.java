@@ -29,7 +29,7 @@ public class ItemPowerOnKeyPressedProcedure {
 			if (!(entity instanceof LivingEntity _livEnt9 && _livEnt9.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get()))
 					&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == KratifExpensionModItems.EGEBERITE_PICKAXE.get()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(KratifExpensionModMobEffects.EGEBE_RUSH.get(), 300, 0));
+					_entity.addEffect(new MobEffectInstance(KratifExpensionModMobEffects.EGEBE_RUSH.get(), 200, 0));
 				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), (float) Math.ceil(3 + 0.1 * (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)));
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 100, 0, false, false));

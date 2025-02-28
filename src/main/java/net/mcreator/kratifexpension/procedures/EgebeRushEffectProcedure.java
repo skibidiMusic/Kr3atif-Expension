@@ -36,7 +36,7 @@ public class EgebeRushEffectProcedure {
             Vec3 position = entity.position().add(offsetX, 1 + offsetY, offsetZ);
             ((ServerLevel) world).sendParticles(ParticleTypes.GLOW_SQUID_INK, position.x, position.y, position.z, 5, 0.1, 0.1, 0.1, 0);
 
-            //((ServerLevel) world).sendParticles(KratifExpensionModParticleTypes.EGEBERUSH_WIND_PARTICLE.get(), entity.getX(), entity.getY() + 1, entity.getZ(), 1, 2, 2, 2, 0);
+            ((ServerLevel) world).sendParticles(KratifExpensionModParticleTypes.EGEBERUSH_WIND_PARTICLE.get(), entity.getX(), entity.getY() + 1, entity.getZ(), 1, 2, 2, 2, 0);
             ((ServerLevel) world).sendParticles(ParticleTypes.SPIT, entity.getX(), entity.getY() + 1, entity.getZ(), 4, 0.5,0.5,0.5, 0.1);
 
             List<Entity> nearbyEntities = serverLevel.getEntities(entity, entity.getBoundingBox().inflate(radius), e -> e instanceof LivingEntity && e != entity);

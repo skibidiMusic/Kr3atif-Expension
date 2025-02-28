@@ -18,6 +18,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 
 import net.mcreator.kratifexpension.procedures.EgebeRushEffectProcedure;
+import net.mcreator.kratifexpension.procedures.EgebeRushExpires;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -50,9 +51,9 @@ public class EgebeRushMobEffect extends MobEffect {
 
     	Vec3 entityPos = entity.position();
     	if (!world.isClientSide()) {
-    	     world.playSound(null, BlockPos.containing(entityPos.x, entityPos.y, entityPos.z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberkwindsound")), SoundSource.AMBIENT, 1, 1);
+    	     world.playSound(null, BlockPos.containing(entityPos.x, entityPos.y, entityPos.z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberkchargeup")), SoundSource.AMBIENT, 1, 1);
     	} else {
-    	     world.playLocalSound(entityPos.x, entityPos.y, entityPos.z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:borandrenaline")), SoundSource.AMBIENT, 1, 1, false);
+    	     world.playLocalSound(entityPos.x, entityPos.y, entityPos.z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberkchargeup")), SoundSource.AMBIENT, 1, 1, false);
     	}
 		//entity.level().particle(null, amplifier, amplifier, amplifier, amplifier, amplifier, amplifier);
 	}
@@ -66,7 +67,7 @@ public class EgebeRushMobEffect extends MobEffect {
 	@Override
 	public void removeAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
 		super.removeAttributeModifiers(entity, attributeMap, amplifier);
-		//EgebeRushEffectProcedure.execute();
+		EgebeRushExpires.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity);
 	}
 
 	@Override
