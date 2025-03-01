@@ -34,5 +34,14 @@
         "stream": false
       }
     ]
+  },
+  "slowcore": {
+    "subtitle": "subtitles.slowcore",
+    "sounds": [
+      {
+        "name": "kratif_expension:randomstuff3",
+        "stream": false
+      }
+    ]
   }
 }

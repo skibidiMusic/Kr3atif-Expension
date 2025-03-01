@@ -23,7 +23,7 @@ public class BorAdrenalineEffectExpiresProcedure {
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0, false, true));
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0, false, true));
+			_entity.addEffect(new MobEffectInstance(KratifExpensionModMobEffects.ANTI_BOR_ADRENALINE.get(), 200, 0, false, true));
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
 				_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:headbuzzing")), SoundSource.AMBIENT, 1, 1);

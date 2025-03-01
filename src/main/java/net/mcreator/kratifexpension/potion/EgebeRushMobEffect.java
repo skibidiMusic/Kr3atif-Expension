@@ -16,7 +16,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.mcreator.kratifexpension.procedures.EgebeRushEffectProcedure;
 import net.mcreator.kratifexpension.procedures.EgebeRushExpires;
 import net.mcreator.kratifexpension.procedures.SpiralParticle;
@@ -34,9 +34,10 @@ public class EgebeRushMobEffect extends MobEffect {
 
     public EgebeRushMobEffect() {
         super(MobEffectCategory.BENEFICIAL, -3342388);
-        boostManager.addAttributeBoost(Attributes.MOVEMENT_SPEED, "Speed Boost Modifier", "e8d1a5b0-8f78-4e6d-8e49-3d4b648495ad", 1.5, 0.25);
-        boostManager.addAttributeBoost(ForgeMod.SWIM_SPEED.get(), "Swim Speed Boost Modifier", "a4b2c3d4-e5f6-7890-abcd-ef1234567890", 1.5, 0.25);
-        boostManager.addAttributeBoost(Attributes.ATTACK_SPEED, "Attack Speed Boost Modifier", "ed4f04ac-be89-3fff-87fd-10792774608a", 1.0, 0.25);
+        this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "7b82db6d-48d5-3e54-9018-ce485d01522e", 1, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		this.addAttributeModifier(Attributes.ARMOR, "ae5e1d89-b01e-3f72-b466-6985fc1b9c05", -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		this.addAttributeModifier(Attributes.ATTACK_SPEED, "1da2e3a9-447e-3541-a857-688f6f8fcc03", 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		this.addAttributeModifier(ForgeMod.SWIM_SPEED.get(), "04bba303-a6bc-3175-a0fa-6fb6fbb7da97", 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL);
         boostManager.addAttributeBoost(Attributes.JUMP_STRENGTH, "Jump Strength Boost Modifier", "f437e174-de9f-3127-9160-ebca06139483", 1.0, 0.25);
         boostManager.addAttributeBoost(ForgeMod.ENTITY_GRAVITY.get(), "Entity Gravity Modifier", "b021e727-9d0f-386c-8d2f-0818b0a26fe6", -0.2, 0);
         boostManager.addAttributeBoost(ForgeMod.ENTITY_REACH.get(), "Entity Reach Modifier", "61e0402c-431a-30cb-8a0a-9e8f88999665", 0.75, 0);
