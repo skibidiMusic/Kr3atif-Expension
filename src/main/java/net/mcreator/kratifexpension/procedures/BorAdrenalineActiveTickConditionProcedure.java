@@ -10,23 +10,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 
-public class BorAdrenalineActiveTickConditionProcedure {
-	public static void execute(Entity entity, LevelAccessor world, double x, double y, double z, int tickCount) {
-		if  ( tickCount % 4 == 0 && (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.AIR && !((world.getBlockState(BlockPos.containing(x, y-1, z))).getBlock() == Blocks.AIR)) {
-			world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
-		}
+import net.mcreator.kratifexpension.procedures.SpiralParticle;
+import net.mcreator.kratifexpension.init.KratifExpensionModParticleTypes;
 
+public class BorAdrenalineActiveTickConditionProcedure {
+	public static void execute(Entity entity, LevelAccessor world, double x, double y, double z, int tickCount, double progress) {
 		if ( world instanceof ServerLevel serverLevel){
-        	//particle
-			double radius = 2;
-        	int yTick = tickCount % 120;
-        	double offsetY = Math.sin((2 * Math.PI * yTick) / 120);
-        	tickCount = tickCount % 40;
-        	double angle = (2 * Math.PI * tickCount) / 40;
-        	double offsetX = radius * Math.cos(angle);
-        	double offsetZ = radius * Math.sin(angle);
-        	Vec3 position = entity.position().add(offsetX, 1 + offsetY, offsetZ);
-        	((ServerLevel) world).sendParticles(ParticleTypes.FLAME, position.x, position.y, position.z, 5, 0.1, 0.1, 0.1, 0);
+			//SpiralParticle.render(2, progress, serverLevel, entity, tickCount, KratifExpensionModParticleTypes.BORADRENALINE_FLAMES.get(), 1);
+			if  (progress > 0.5 && tickCount % 4 == 0 && (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.AIR && !((world.getBlockState(BlockPos.containing(x, y-1, z))).getBlock() == Blocks.AIR)) {
+				serverLevel.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+			}
+			((ServerLevel) world).sendParticles(KratifExpensionModParticleTypes.BORADRENALINE_EXPLOSION.get(), entity.getX(), entity.getY() + 1, entity.getZ(), 1, .1, .1, .1, 1);
 		}
 	}
 }

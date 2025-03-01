@@ -1,0 +1,23 @@
+{
+  "_fv": 73,
+  "_type": "particle",
+  "definition": {
+    "texture": "boradarenalineexplosion2",
+    "animate": true,
+    "frameDuration": 2,
+    "width": 0.1,
+    "height": 0.1,
+    "scale": {
+      "fixedValue": 3.0
+    },
+    "speedFactor": 0.0,
+    "gravity": 0.0,
+    "maxAge": 28,
+    "maxAgeDiff": 0,
+    "angularVelocity": 0.0,
+    "angularAcceleration": 0.0,
+    "canCollide": false,
+    "alwaysShow": false,
+    "renderType": "OPAQUE"
+  }
+}

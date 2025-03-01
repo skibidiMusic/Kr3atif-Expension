@@ -650,24 +650,7 @@
         "files": [
           "src/main/java/net/mcreator/kratifexpension/procedures/EgebeRushedEffectStartedappliedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Effects/EgebebeRushed"
     },
@@ -728,6 +711,48 @@
         ]
       },
       "path": "~/Effects/EgebeRush"
+    },
+    {
+      "name": "BorAdrenalineTrail",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boradrenalineexplosion1",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/particles/boradrenalineexplosion1.json",
+          "src/main/java/net/mcreator/kratifexpension/client/particle/BorAdrenalineTrailParticle.java"
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BoradrenalineFlames",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boradrenaline_flames",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/particles/boradrenaline_flames.json",
+          "src/main/java/net/mcreator/kratifexpension/client/particle/BoradrenalineFlamesParticle.java"
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "BoradrenalineExplosion",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boradrenaline_explosion",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/kratif_expension/particles/boradrenaline_explosion.json",
+          "src/main/java/net/mcreator/kratifexpension/client/particle/BoradrenalineExplosionParticle.java"
+        ]
+      },
+      "path": "~/Effects/Boradrenalin"
     }
   ],
   "variable_elements": [],
@@ -790,8 +815,8 @@
       "subtitles.egeberkwindsound": "Egeberks wind 🙏",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
       "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
-      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_1": "",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_0": "Supreme Upgrade",
       "effect.kratif_expension.egebe_rushed": "Egebe Rushed",

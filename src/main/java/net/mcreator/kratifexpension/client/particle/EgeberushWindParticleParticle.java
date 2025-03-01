@@ -36,9 +36,9 @@ public class EgeberushWindParticleParticle extends TextureSheetParticle {
 		super(world, x, y, z);
 		this.spriteSet = spriteSet;
 		this.setSize(0f, 0f);
-		this.quadSize *= 5f;
+		this.quadSize *= 4f;
 		this.lifetime = 32;
-		this.gravity = -0.4f;
+		this.gravity = -0.1f;
 		this.hasPhysics = false;
 		this.xd = vx * 1;
 		this.yd = vy * 1;

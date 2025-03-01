@@ -16,8 +16,9 @@ public class EgebeRushExpires {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
 			_entity.addEffect(new MobEffectInstance(KratifExpensionModMobEffects.EXHAUSTION.get(), 1200, 0, false, true));
+		}
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0, false, true));
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -29,5 +30,7 @@ public class EgebeRushExpires {
 				_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:headbuzzing")), SoundSource.AMBIENT, 1, 1, false);
 			}
 		}
+
+		
 	}
 }
