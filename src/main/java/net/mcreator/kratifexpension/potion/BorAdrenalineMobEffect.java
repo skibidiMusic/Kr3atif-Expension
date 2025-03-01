@@ -66,13 +66,21 @@ public class BorAdrenalineMobEffect extends MobEffect {
 		tickCounter = 0;
 		boostProgress = 0;
 
-        boostManager.startBoost(entity);
+		if (entity.level() instanceof ServerLevel _Level) {
+			boostManager.startBoost(entity);
+			spiralParticle.setSpeed(1 + 2 * boostProgress);
+			spiralParticle.render(_Level, entity, KratifExpensionModParticleTypes.BORADRENALINE_FLAMES.get(), 2);
+		}
     }
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        tickCounter++;
+        tickCounter+= 1;
         BorAdrenalineActiveTickConditionProcedure.execute(entity, entity.level(), entity.getX(), entity.getY(), entity.getZ(), tickCounter, boostProgress);
+
+		if (!(entity.level() instanceof ServerLevel _Level)) {
+			return;
+		}
 
         if (tickCounter % BOOST_INTERVAL == 0) {
             double progress = (double) tickCounter / DURATION_TICKS;
@@ -81,7 +89,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
             spawnLightning(entity.level(), entity.blockPosition());
         }
 
-		if (entity.level() instanceof ServerLevel _Level) {
+		if (entity.level() instanceof ServerLevel) {
 			spiralParticle.setSpeed(1 + 2 * boostProgress);
 			spiralParticle.render(_Level, entity, KratifExpensionModParticleTypes.BORADRENALINE_FLAMES.get(), 2);
 		}

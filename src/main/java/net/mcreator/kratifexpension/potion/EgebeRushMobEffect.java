@@ -54,6 +54,8 @@ public class EgebeRushMobEffect extends MobEffect {
     @Override
     public void addAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
         tickCounter = 0;
+		System.out.println(tickCounter);
+
         boostManager.startBoost(entity);
         super.addAttributeModifiers(entity, attributeMap, amplifier);
         Level world = entity.level();
@@ -68,14 +70,17 @@ public class EgebeRushMobEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
+		if (!(entity.level() instanceof ServerLevel _level) ) {
+			return;
+		}
+
         this.tickCounter += 1;
         EgebeRushEffectProcedure.execute(entity, this.tickCounter);
         double progress = (double) tickCounter / DURATION_TICKS;
 
-        boostManager.setProgress(progress, entity);
-
 		//spiral effect
-		if (entity.level() instanceof ServerLevel _level) {
+		if (entity.level() instanceof ServerLevel) {
+			boostManager.setProgress(progress, entity);
 			spiralParticle.setSpeed(1 + 5 * progress);
 			spiralParticle.render(_level, entity, ParticleTypes.GLOW_SQUID_INK, 5);
 		}

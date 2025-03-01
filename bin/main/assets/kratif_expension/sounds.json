@@ -1,0 +1,38 @@
+{
+  "borandrenaline": {
+    "subtitle": "subtitles.borandrenaline",
+    "sounds": [
+      {
+        "name": "kratif_expension:randomstuff_2",
+        "stream": false
+      }
+    ]
+  },
+  "headbuzzing": {
+    "subtitle": "subtitles.headbuzzing",
+    "sounds": [
+      {
+        "name": "kratif_expension:headbuzzing",
+        "stream": false
+      }
+    ]
+  },
+  "egeberkchargeup": {
+    "subtitle": "subtitles.egeberkchargeup",
+    "sounds": [
+      {
+        "name": "kratif_expension:378173__ghettovan__windexplode",
+        "stream": false
+      }
+    ]
+  },
+  "windexplosion": {
+    "subtitle": "subtitles.windexplosion",
+    "sounds": [
+      {
+        "name": "kratif_expension:322485__liamg_sfx__explosion-11",
+        "stream": false
+      }
+    ]
+  }
+}
