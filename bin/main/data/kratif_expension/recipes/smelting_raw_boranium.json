@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 12,
+  "cookingtime": 600,
+  "ingredient": {
+    "item": "kratif_expension:raw_boranium"
+  },
+  "result": "kratif_expension:boranium_ingot"
+}

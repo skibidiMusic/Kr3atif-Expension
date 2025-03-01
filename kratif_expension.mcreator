@@ -753,6 +753,39 @@
         ]
       },
       "path": "~/Effects/Boradrenalin"
+    },
+    {
+      "name": "EffectDisplayOverlayIngame",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "effect_display_overlay_ingame",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/procedures/EffectDisplayOverlayIngameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Gui/Boradrenalin"
+    },
+    {
+      "name": "Flames",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "flames",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/kratifexpension/client/screens/FlamesOverlay.java"
+        ]
+      },
+      "path": "~/Gui/Boradrenalin"
     }
   ],
   "variable_elements": [],
@@ -815,8 +848,8 @@
       "subtitles.egeberkwindsound": "Egeberks wind 🙏",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_3": " Netherite Equipments",
       "item.kratif_expension.egeberite_gobbet": "Egeberite Gobbet",
-      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.minecraft.potion.effect.exhaustion_potion": "Potion of Exhaustion",
+      "item.kratif_expension.supreme_upgrade_smithing_template.description_2": "Applies To:",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_1": "",
       "item.kratif_expension.supreme_upgrade_smithing_template.description_0": "Supreme Upgrade",
       "effect.kratif_expension.egebe_rushed": "Egebe Rushed",
@@ -887,6 +920,15 @@
           },
           {
             "name": "EgebebeRushed",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Gui",
+        "children": [
+          {
+            "name": "Boradrenalin",
             "children": []
           }
         ]

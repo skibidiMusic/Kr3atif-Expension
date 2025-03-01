@@ -86,7 +86,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
             double progress = (double) tickCounter / DURATION_TICKS;
 			boostProgress = progress;
             boostManager.setProgress(progress, entity);
-            spawnLightning(entity.level(), entity.blockPosition());
+            spawnLightning(entity.level(), entity.blockPosition(), progress == 1);
         }
 
 		if (entity.level() instanceof ServerLevel) {
@@ -95,16 +95,24 @@ public class BorAdrenalineMobEffect extends MobEffect {
 		}
     }
 
-    private void spawnLightning(Level world, BlockPos pos) {
+    private void spawnLightning(Level world, BlockPos pos, boolean noRandom) {
 		if (world instanceof ServerLevel _level) {
 			LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
 
-			double offsetX = random.nextInt(-3, 4);
-			double offsetZ = random.nextInt(-3, 4); // Range: -5 to +5
+            double offsetX, offsetZ;
+
+            if (!noRandom) {
+                offsetX = random.nextInt(-3, 4);
+                offsetZ = random.nextInt(-3, 4); // Range: -5 to +5
+            }
+            else {
+                offsetX = 0;
+                offsetZ = 0;
+            }
 
 			//entityToSpawn.moveTo(pos.getX() + offsetX, pos.getY(), pos.getZ() + offsetZ);
 			entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(pos.getX() + offsetX, pos.getY(), pos.getZ() + offsetZ)));
-			entityToSpawn.setVisualOnly(true);
+			entityToSpawn.setVisualOnly(false);
 			_level.addFreshEntity(entityToSpawn);
 		}
     }

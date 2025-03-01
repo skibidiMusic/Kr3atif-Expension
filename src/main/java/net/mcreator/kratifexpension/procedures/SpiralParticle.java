@@ -34,7 +34,7 @@ public class SpiralParticle {
         double offsetX = radius * Math.cos(angle);
         double offsetZ = radius * Math.sin(angle);
 
-        Vec3 position = entity.position().add(offsetX, 1 + yOffset, offsetZ);
+        Vec3 position = entity.position().add(offsetX, 1.25 + yOffset, offsetZ);
         world.sendParticles(particle, position.x, position.y, position.z, amount, 0.1, 0.1, 0.1, 0);
     }
 }

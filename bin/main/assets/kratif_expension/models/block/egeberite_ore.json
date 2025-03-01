@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "kratif_expension:block/egeberite",
+    "particle": "kratif_expension:block/egeberite"
+  },
+  "render_type": "solid"
+}
