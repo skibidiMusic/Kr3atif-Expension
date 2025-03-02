@@ -6,6 +6,8 @@ import net.mcreator.kratifexpension.procedures.BorAdrenalineEffectExpiresProcedu
 import net.mcreator.kratifexpension.procedures.BorAdrenalineActiveTickConditionProcedure;
 import net.mcreator.kratifexpension.init.KratifExpensionModParticleTypes;
 import net.mcreator.kratifexpension.procedures.AttributeBoostManager;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
@@ -86,7 +89,8 @@ public class BorAdrenalineMobEffect extends MobEffect {
             double progress = (double) tickCounter / DURATION_TICKS;
 			boostProgress = progress;
             boostManager.setProgress(progress, entity);
-            spawnLightning(entity.level(), entity.blockPosition(), progress == 1);
+            spawnLightning(entity.level(), entity.blockPosition(), progress == 1, entity);
+            entity.heal(5.0f);
         }
 
 		if (entity.level() instanceof ServerLevel) {
@@ -95,7 +99,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
 		}
     }
 
-    private void spawnLightning(Level world, BlockPos pos, boolean noRandom) {
+    private void spawnLightning(Level world, BlockPos pos, boolean noRandom, LivingEntity plr) {
 		if (world instanceof ServerLevel _level) {
 			LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
 
@@ -111,8 +115,21 @@ public class BorAdrenalineMobEffect extends MobEffect {
             }
 
 			//entityToSpawn.moveTo(pos.getX() + offsetX, pos.getY(), pos.getZ() + offsetZ);
-			entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(pos.getX() + offsetX, pos.getY(), pos.getZ() + offsetZ)));
-			entityToSpawn.setVisualOnly(false);
+            BlockPos targetPos = BlockPos.containing(pos.getX() + offsetX, pos.getY(), pos.getZ() + offsetZ); 
+
+			entityToSpawn.moveTo(Vec3.atBottomCenterOf(targetPos));
+			entityToSpawn.setVisualOnly(true);
+
+            float damageAmount = 5.0F; // Adjust damage value
+            AABB area = new AABB(targetPos).inflate(3); // 3-block radius
+            List<LivingEntity> entities = world.getEntitiesOfClass(LivingEntity.class, area);
+
+            for (LivingEntity entity : entities) {
+                if (entity != plr) { // Skip the player
+                    entity.hurt(entity.damageSources().lightningBolt(), damageAmount);
+                }
+            }
+
 			_level.addFreshEntity(entityToSpawn);
 		}
     }
@@ -122,6 +139,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
         super.removeAttributeModifiers(entity, attributeMap, amplifier);
         BorAdrenalineEffectExpiresProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity);
         boostManager.stopBoost(entity);
+        entity.hurt(entity.damageSources().onFire(), 10.0f);
     }
 
     @Override
