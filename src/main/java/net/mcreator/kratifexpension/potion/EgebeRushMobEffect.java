@@ -34,7 +34,7 @@ public class EgebeRushMobEffect extends MobEffect {
 
     public EgebeRushMobEffect() {
         super(MobEffectCategory.BENEFICIAL, -3342388);
-        this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "7b82db6d-48d5-3e54-9018-ce485d01522e", 1, AttributeModifier.Operation.MULTIPLY_TOTAL);
+        this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "7b82db6d-48d5-3e54-9018-ce485d01522e", 1.5, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		this.addAttributeModifier(Attributes.ARMOR, "ae5e1d89-b01e-3f72-b466-6985fc1b9c05", -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		this.addAttributeModifier(Attributes.ATTACK_SPEED, "1da2e3a9-447e-3541-a857-688f6f8fcc03", 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		this.addAttributeModifier(ForgeMod.SWIM_SPEED.get(), "04bba303-a6bc-3175-a0fa-6fb6fbb7da97", 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL);

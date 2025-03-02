@@ -51,6 +51,7 @@ public class ItemPowerMessage {
 		if (!world.hasChunkAt(entity.blockPosition()))
 			return;
 		if (type == 0) {
+
 			ItemPowerOnKeyPressedProcedure.execute(world, entity);
 		}
 	}

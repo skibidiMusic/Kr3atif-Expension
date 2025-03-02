@@ -31,6 +31,7 @@ public class KratifExpensionModTabs {
 			tabData.accept(KratifExpensionModItems.SUPREME_UPGRADE_SMITHING_TEMPLATE.get());
 			tabData.accept(KratifExpensionModItems.EGEBERITE_GOBBET.get());
 			tabData.accept(KratifExpensionModItems.RAW_EGEBERITE.get());
+			tabData.accept(KratifExpensionModItems.EGEBERITE.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.COMBAT) {
 			tabData.accept(KratifExpensionModItems.BORANIUM_SWORD.get());
 			tabData.accept(KratifExpensionModItems.BORANIUM_ARMOR_HELMET.get());

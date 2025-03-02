@@ -3,7 +3,7 @@
   "_type": "keybind",
   "definition": {
     "triggerKey": "R",
-    "keyBindingName": "Item Power",
+    "keyBindingName": "ItemPower",
     "keyBindingCategoryKey": "gameplay",
     "onKeyPressed": {
       "name": "ItemPowerOnKeyPressed"

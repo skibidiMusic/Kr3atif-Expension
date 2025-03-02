@@ -17,8 +17,8 @@ public class ItemPowerOnKeyPressedProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		if (!(entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get()) && entity instanceof LivingEntity _livEnt1 && _livEnt1.hasEffect(KratifExpensionModMobEffects.BOR_ADRENALINE.get())
-				&& entity instanceof LivingEntity _livEnt2 && _livEnt2.hasEffect(KratifExpensionModMobEffects.EXHAUSTION.get()))) {
+		if (!(entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get())) && !(entity instanceof LivingEntity _livEnt1 && _livEnt1.hasEffect(KratifExpensionModMobEffects.BOR_ADRENALINE.get()))
+				&& !(entity instanceof LivingEntity _livEnt2 && _livEnt2.hasEffect(KratifExpensionModMobEffects.EXHAUSTION.get()))) {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == KratifExpensionModItems.BORANIUM_SWORD.get()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(KratifExpensionModMobEffects.BOR_ADRENALINE.get(), 300, 0));

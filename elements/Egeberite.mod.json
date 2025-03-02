@@ -8,8 +8,12 @@
     "customProperties": {},
     "states": [],
     "name": "Egeberite",
-    "rarity": "COMMON",
-    "creativeTabs": [],
+    "rarity": "UNCOMMON",
+    "creativeTabs": [
+      {
+        "value": "MATERIALS"
+      }
+    ],
     "stackSize": 64,
     "enchantability": 0,
     "useDuration": 0,
@@ -19,7 +23,7 @@
       "value": ""
     },
     "destroyAnyBlock": false,
-    "immuneToFire": false,
+    "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
