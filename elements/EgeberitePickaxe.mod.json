@@ -10,7 +10,9 @@
     "blockingModelName": "Normal blocking",
     "name": "Egeberite Pickaxe",
     "specialInformation": {
-      "fixedValue": []
+      "fixedValue": [
+        "R'ye basarak egeberush'u aktive et 🙏"
+      ]
     },
     "creativeTabs": [
       {

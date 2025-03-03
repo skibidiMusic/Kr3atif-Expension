@@ -49,7 +49,6 @@ public class AttributeBoostManager {
 
     public void setProgress(double newProgress, LivingEntity player) {
         this.progress = Math.max(0.0, Math.min(1.0, newProgress)); // Clamps progress between 0 and 1
-        System.out.println(newProgress);
 
         for (Map.Entry<Attribute, AttributeBoost> entry : attributeBoosts.entrySet()) {
             Attribute attribute = entry.getKey();
@@ -61,9 +60,6 @@ public class AttributeBoostManager {
                 playerAttribute.addTransientModifier(new AttributeModifier(
                     boost.uuid, boost.name, boostAmount, AttributeModifier.Operation.MULTIPLY_TOTAL
                 ));
-                if ( boost.name == "Speed Boost Modifier") {
-                    System.out.println(boostAmount);
-                }
             }
         }
     }

@@ -10,6 +10,8 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
@@ -96,6 +98,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
 		if (entity.level() instanceof ServerLevel) {
 			spiralParticle.setSpeed(1 + 2 * boostProgress);
 			spiralParticle.render(_Level, entity, KratifExpensionModParticleTypes.BORADRENALINE_FLAMES.get(), 2);
+            entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2, 0, false, false));
 		}
     }
 
@@ -121,7 +124,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
 			entityToSpawn.setVisualOnly(true);
 
             float damageAmount = 5.0F; // Adjust damage value
-            AABB area = new AABB(targetPos).inflate(3); // 3-block radius
+            AABB area = new AABB(targetPos).inflate(10); // 3-block radius
             List<LivingEntity> entities = world.getEntitiesOfClass(LivingEntity.class, area);
 
             for (LivingEntity entity : entities) {

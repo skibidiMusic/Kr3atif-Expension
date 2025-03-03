@@ -1,5 +1,6 @@
 {
   "effect.kratif_expension.exhaustion": "Exhaustion",
+  "item.kratif_expension.egeberite_pickaxe.description_0": "R\u0027ye basarak egeberush\u0027u aktive et 🙏",
   "effect.kratif_expension.egebe_rush": "Egebe Rush",
   "item.kratif_expension.egeberite_pickaxe": "Egeberite Pickaxe",
   "subtitles.egeberkwindsound": "Egeberks wind 🙏",
@@ -29,6 +30,7 @@
   "item.kratif_expension.boranium_armor_leggings": "Boranium Leggings",
   "item.kratif_expension.boranium_armor_helmet": "Boranium Helmet",
   "item.kratif_expension.raw_egeberite": "Raw Egeberite",
+  "item.kratif_expension.boranium_sword.description_0": "R \u0027 ye basarak boradrenalini hisset ☠️",
   "item.kratif_expension.egeberite": "Egeberite",
   "item.kratif_expension.boranium_sword": "Boranium Sword",
   "effect.kratif_expension.bor_adrenaline": "Bor Adrenaline",

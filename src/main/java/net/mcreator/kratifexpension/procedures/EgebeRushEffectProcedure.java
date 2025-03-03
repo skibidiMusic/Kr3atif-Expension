@@ -34,8 +34,6 @@ public class EgebeRushEffectProcedure {
             
             for (Entity target : nearbyEntities) {
                 Vec3 dist = target.position().subtract(entity.position());
-                pushStrength *= dist.length() / radius * (entity.getSpeed() / 0.1);
-
                 Vec3 direction = dist.normalize();
                 
                 target.setDeltaMovement(direction.x * pushStrength, 0, direction.z * pushStrength);
