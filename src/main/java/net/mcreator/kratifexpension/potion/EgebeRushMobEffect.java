@@ -50,9 +50,9 @@ public class EgebeRushMobEffect extends MobEffect {
 
     public EgebeRushMobEffect() {
         super(MobEffectCategory.BENEFICIAL, -3342388);
-        boostManager.addAttributeBoost(Attributes.MOVEMENT_SPEED, "Speed Boost Modifier", "e8d1a5b0-8f78-4e6d-8e49-3d4b648495ad", 1.5, 0.25);
+        boostManager.addAttributeBoost(Attributes.MOVEMENT_SPEED, "Speed Boost Modifier", "e8d1a5b0-8f78-4e6d-8e49-3d4b648495ad", 2, 0.75);
         boostManager.addAttributeBoost(ForgeMod.SWIM_SPEED.get(), "Swim Speed Boost Modifier", "a4b2c3d4-e5f6-7890-abcd-ef1234567890", 1.5, 0.25);
-        boostManager.addAttributeBoost(Attributes.ATTACK_SPEED, "Attack Speed Boost Modifier", "ed4f04ac-be89-3fff-87fd-10792774608a", 1.0, 0.25);
+        boostManager.addAttributeBoost(Attributes.ATTACK_SPEED, "Attack Speed Boost Modifier", "ed4f04ac-be89-3fff-87fd-10792774608a", 1.5, 0.5);
         boostManager.addAttributeBoost(Attributes.JUMP_STRENGTH, "Jump Strength Boost Modifier", "f437e174-de9f-3127-9160-ebca06139483", 4, 1);
         boostManager.addAttributeBoost(ForgeMod.ENTITY_GRAVITY.get(), "Entity Gravity Modifier", "b021e727-9d0f-386c-8d2f-0818b0a26fe6", -.2, 0);
         boostManager.addAttributeBoost(ForgeMod.ENTITY_REACH.get(), "Entity Reach Modifier", "61e0402c-431a-30cb-8a0a-9e8f88999665", 0.75, 0);
@@ -95,9 +95,9 @@ public class EgebeRushMobEffect extends MobEffect {
 
         this.tickCounter += 1;
         EgebeRushEffectProcedure.execute(entity, this.tickCounter);
-        double progress = Math.min((double)(tickCounter / DURATION_TICKS), 1.0d);
+        double progress = Math.min((double)Math.sqrt((tickCounter / DURATION_TICKS)), 1.0d);
 
-        entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 2, (int)((progress) * 6), false, false));
+        entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 2, (int)((progress) * 4 + 3), false, false));
 
 		//spiral effect
 		boostManager.setProgress(progress, entity);
@@ -129,7 +129,7 @@ public class EgebeRushMobEffect extends MobEffect {
     @SubscribeEvent
     public static void onPlayerLand(LivingFallEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return; // Ensure it's a player
-        System.out.println("Landed");
+        //System.out.println("Landed");
         
         // Check if the player has the specific potion effect
         if (!player.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get())) return; // Replace with your custom effect if needed
