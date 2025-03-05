@@ -101,7 +101,7 @@ public class EgebeRushMobEffect extends MobEffect {
 
 		//spiral effect
 		boostManager.setProgress(progress, entity);
-		spiralParticle.setSpeed(1 + 1.5 * progress);
+		spiralParticle.setSpeed(1 + 4 * Math.pow(progress, 4));
 		spiralParticle.render(_level, entity, ParticleTypes.GLOW_SQUID_INK, 5);
     }
 

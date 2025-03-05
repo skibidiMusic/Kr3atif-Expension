@@ -19,79 +19,85 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.mcreator.kratifexpension.init.KratifExpensionModMobEffects;
 import net.mcreator.kratifexpension.procedures.BoraniumSwordRightclickedProcedure;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber
 public class EgeberitePickaxeItem extends PickaxeItem {
-	private static final double MOVE_MULTIPLIER = 3.0; // Modify gravity strength
-    private static final HashSet<UUID> playersWithBoost = new HashSet<>();
+    private static final double MOVE_MULTIPLIER = 1.25; // Speed boost multiplier
+    private static final int EFFECT_DURATION_TICKS = 30; // 1.5 seconds
+    private static final int COOLDOWN_TICKS = 20; // 1 seconds
+    private static final HashMap<UUID, Integer> activePlayers = new HashMap<>();
 
-	public EgeberitePickaxeItem() {
-		super(new Tier() {
-			public int getUses() {
-				return 100;
-			}
+    public EgeberitePickaxeItem() {
+        super(new Tier() {
+            public int getUses() { return 100; }
+            public float getSpeed() { return 11f; }
+            public float getAttackDamageBonus() { return 5f; }
+            public int getLevel() { return 4; }
+            public int getEnchantmentValue() { return 2; }
+            public Ingredient getRepairIngredient() { return Ingredient.of(); }
+        }, 1, -2.8f, new Item.Properties().fireResistant());
+    }
 
-			public float getSpeed() {
-				return 11f;
-			}
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        InteractionResultHolder<ItemStack> result = super.use(world, player, hand);
+        UUID playerId = player.getUUID();
 
-			public float getAttackDamageBonus() {
-				return 5f;
-			}
+        // Check if the item is on cooldown
+        if (player.getCooldowns().isOnCooldown(this)) {
+            return result;
+        }
 
-			public int getLevel() {
-				return 4;
-			}
+        // Check if the player has the Egebe Rush effect
+        if (!player.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get())) {
+            return result;
+        }
 
-			public int getEnchantmentValue() {
-				return 2;
-			}
+        // Apply the boost effect
+        activePlayers.put(playerId, EFFECT_DURATION_TICKS);
+        world.playSound(null, player.blockPosition(), SoundEvents.HORSE_BREATHE, SoundSource.PLAYERS, 1.0F, 1.5F);
 
-			public Ingredient getRepairIngredient() {
-				return Ingredient.of();
-			}
-		}, 1, -2.8f, new Item.Properties().fireResistant());
-	}
+        // Set cooldown so it visually greys out in hotbar
+        player.getCooldowns().addCooldown(this, COOLDOWN_TICKS);
 
-	@Override
-	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
-		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.translatable("item.kratif_expension.egeberite_pickaxe.description_0"));
-	}
+        return result;
+    }
 
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
-
-		if (entity.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get())) {
-			if (!playersWithBoost.contains(entity.getUUID())) {
-                playersWithBoost.add(entity.getUUID());
-				world.playSound(null, entity.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.5F);
-            }
-		}
-
-		//BoraniumSwordRightclickedProcedure.execute(world, entity, ar.getObject());
-		return ar;
-	}
-
-	@SubscribeEvent
+    @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
+        UUID playerId = player.getUUID();
 
-        if (playersWithBoost.contains(player.getUUID()) && !player.onGround()) {
-            Vec3 velocity = player.getLookAngle().scale(MOVE_MULTIPLIER * 0.1);
-            player.addDeltaMovement(velocity);
-        } else {
-			playersWithBoost.remove(player.getUUID());
-		}
+        // Check if the player is affected
+        if (activePlayers.containsKey(playerId)) {
+            int timeLeft = activePlayers.get(playerId);
+            if (timeLeft > 0) {
+                Vec3 lookAngle = player.getLookAngle();
+                double speed = MOVE_MULTIPLIER * 0.1;
+                Vec3 velocity = lookAngle.scale(speed);
+                player.addDeltaMovement(velocity);
+
+                // Particle Effect
+                if (player.level() instanceof ServerLevel _level) {
+                    _level.sendParticles(ParticleTypes.SPIT, player.getX(), player.getY() + 1, player.getZ(), 4, 0.5, 0.5, 0.5, 0.1);
+                }
+
+                activePlayers.put(playerId, timeLeft - 1);
+            } else {
+                activePlayers.remove(playerId); // Remove effect when duration ends
+            }
+        }
     }
 }
