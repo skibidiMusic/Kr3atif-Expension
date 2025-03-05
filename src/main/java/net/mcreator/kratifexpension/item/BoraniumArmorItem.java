@@ -34,7 +34,7 @@ public abstract class BoraniumArmorItem extends ArmorItem {
 
             @Override
             public int getDefenseForType(ArmorItem.Type type) {
-                return new int[]{4, 10, 8, 5}[type.getSlot().getIndex()];
+                return new int[]{4, 8, 10, 5}[type.getSlot().getIndex()];
             }
 
             @Override

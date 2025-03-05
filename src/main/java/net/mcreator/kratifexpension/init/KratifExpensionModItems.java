@@ -18,6 +18,7 @@ import net.mcreator.kratifexpension.item.RawBoraniumItem;
 import net.mcreator.kratifexpension.item.EgeberitePickaxeItem;
 import net.mcreator.kratifexpension.item.EgeberiteItem;
 import net.mcreator.kratifexpension.item.EgeberiteGobbetItem;
+import net.mcreator.kratifexpension.item.EgeberiteArmorItem;
 import net.mcreator.kratifexpension.item.BoraniumSwordItem;
 import net.mcreator.kratifexpension.item.BoraniumScrapItem;
 import net.mcreator.kratifexpension.item.BoraniumIngotItem;
@@ -41,6 +42,10 @@ public class KratifExpensionModItems {
 	public static final RegistryObject<Item> EGEBERITE_GOBBET = REGISTRY.register("egeberite_gobbet", () -> new EgeberiteGobbetItem());
 	public static final RegistryObject<Item> RAW_EGEBERITE = REGISTRY.register("raw_egeberite", () -> new RawEgeberiteItem());
 	public static final RegistryObject<Item> EGEBERITE = REGISTRY.register("egeberite", () -> new EgeberiteItem());
+	public static final RegistryObject<Item> EGEBERITE_ARMOR_HELMET = REGISTRY.register("egeberite_armor_helmet", () -> new EgeberiteArmorItem.Helmet());
+	public static final RegistryObject<Item> EGEBERITE_ARMOR_CHESTPLATE = REGISTRY.register("egeberite_armor_chestplate", () -> new EgeberiteArmorItem.Chestplate());
+	public static final RegistryObject<Item> EGEBERITE_ARMOR_LEGGINGS = REGISTRY.register("egeberite_armor_leggings", () -> new EgeberiteArmorItem.Leggings());
+	public static final RegistryObject<Item> EGEBERITE_ARMOR_BOOTS = REGISTRY.register("egeberite_armor_boots", () -> new EgeberiteArmorItem.Boots());
 
 	// Start of user code block custom items
 	// End of user code block custom items

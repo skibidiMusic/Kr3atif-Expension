@@ -38,6 +38,10 @@ public class KratifExpensionModTabs {
 			tabData.accept(KratifExpensionModItems.BORANIUM_ARMOR_CHESTPLATE.get());
 			tabData.accept(KratifExpensionModItems.BORANIUM_ARMOR_LEGGINGS.get());
 			tabData.accept(KratifExpensionModItems.BORANIUM_ARMOR_BOOTS.get());
+			tabData.accept(KratifExpensionModItems.EGEBERITE_ARMOR_HELMET.get());
+			tabData.accept(KratifExpensionModItems.EGEBERITE_ARMOR_CHESTPLATE.get());
+			tabData.accept(KratifExpensionModItems.EGEBERITE_ARMOR_LEGGINGS.get());
+			tabData.accept(KratifExpensionModItems.EGEBERITE_ARMOR_BOOTS.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			tabData.accept(KratifExpensionModItems.EGEBERITE_PICKAXE.get());
 		}
