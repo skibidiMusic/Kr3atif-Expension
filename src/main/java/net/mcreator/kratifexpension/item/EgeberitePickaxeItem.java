@@ -67,7 +67,7 @@ public class EgeberitePickaxeItem extends PickaxeItem {
 
         // Apply the boost effect
         activePlayers.put(playerId, EFFECT_DURATION_TICKS);
-        world.playSound(null, player.blockPosition(), SoundEvents.HORSE_BREATHE, SoundSource.PLAYERS, 1.0F, 1.5F);
+        world.playSound(null, player.blockPosition(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 1.0F, 1.5F);
 
         // Set cooldown so it visually greys out in hotbar
         player.getCooldowns().addCooldown(this, COOLDOWN_TICKS);

@@ -96,7 +96,7 @@ public class BorAdrenalineMobEffect extends MobEffect {
         }
 
 		if (entity.level() instanceof ServerLevel) {
-			spiralParticle.setSpeed(1 + 2 * boostProgress);
+			spiralParticle.setSpeed(1 + 2 * Math.pow(boostProgress, 4));
 			spiralParticle.render(_Level, entity, KratifExpensionModParticleTypes.BORADRENALINE_FLAMES.get(), 2);
             entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2, 0, false, false));
 		}
