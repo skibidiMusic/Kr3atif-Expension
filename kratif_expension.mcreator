@@ -900,6 +900,14 @@
       ],
       "category": "player",
       "subtitle": "Muscle abnegation"
+    },
+    {
+      "name": "egeberushmusic",
+      "files": [
+        "egeberush_music"
+      ],
+      "category": "music",
+      "subtitle": "egeberush intensifies"
     }
   ],
   "tag_elements": {
@@ -953,6 +961,7 @@
       "item.minecraft.tipped_arrow.effect.exhaustion_potion": "Arrow of Exhaustion",
       "key.kratif_expension.item_power": "ItemPower",
       "item.kratif_expension.boranium_armor_leggings": "Boranium Leggings",
+      "subtitles.egeberushmusic": "egeberush intensifies",
       "item.kratif_expension.boranium_armor_helmet": "Boranium Helmet",
       "item.kratif_expension.raw_egeberite": "Raw Egeberite",
       "item.kratif_expension.boranium_sword.description_0": "R \u0027 ye basarak boradrenalini hisset ☠️",

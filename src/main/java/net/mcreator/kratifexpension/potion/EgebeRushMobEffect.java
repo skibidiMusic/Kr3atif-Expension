@@ -27,7 +27,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.mcreator.kratifexpension.procedures.EgebeRushEffectProcedure;
 import net.mcreator.kratifexpension.procedures.EgebeRushExpires;
@@ -80,8 +80,10 @@ public class EgebeRushMobEffect extends MobEffect {
 
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(entityPos.x, entityPos.y, entityPos.z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberkchargeup")), SoundSource.AMBIENT, 1, 1);
+            world.playSound(null, BlockPos.containing(entityPos.x, entityPos.y, entityPos.z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberushmusic")), SoundSource.PLAYERS, 1, 1);
         } else {
             world.playLocalSound(entityPos.x, entityPos.y, entityPos.z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberkchargeup")), SoundSource.AMBIENT, 1, 1, false);
+            world.playLocalSound(entityPos.x, entityPos.y, entityPos.z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("kratif_expension:egeberushmusic")), SoundSource.PLAYERS, 1, 1, false);
         }
     }
 
@@ -98,6 +100,7 @@ public class EgebeRushMobEffect extends MobEffect {
         double progress = Math.min((double)Math.sqrt((tickCounter / DURATION_TICKS)), 1.0d);
 
         entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 2, (int)((progress) * 4 + 3), false, false));
+        entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 2, (int)((progress) * 10 + 5), false, false));
 
 		//spiral effect
 		boostManager.setProgress(progress, entity);
@@ -176,5 +179,20 @@ public class EgebeRushMobEffect extends MobEffect {
 
         // Play jump sound effect
         player.level().playSound(null, player.blockPosition(), SoundEvents.RABBIT_JUMP, SoundSource.PLAYERS, 1.0F, 1.2F);
+    }
+
+    @SubscribeEvent
+    public static void onLivingFall(LivingFallEvent event) {
+        // Check if the entity is a player (optional)
+        if ((event.getEntity() instanceof Player plr) && plr.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get())) {
+            // Reduce damage by 50% (you can change the multiplier)
+            float reducedDamage = event.getDamageMultiplier() * 0.1f; 
+
+            // Set the new fall damage multiplier
+            event.setDamageMultiplier(reducedDamage);
+
+            // If you want to completely remove fall damage, use:
+            // event.setDamageMultiplier(0);
+        }
     }
 }

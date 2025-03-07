@@ -20,4 +20,5 @@ public class KratifExpensionModSounds {
 	public static final RegistryObject<SoundEvent> EGEBERKCHARGEUP = REGISTRY.register("egeberkchargeup", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "egeberkchargeup")));
 	public static final RegistryObject<SoundEvent> WINDEXPLOSION = REGISTRY.register("windexplosion", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "windexplosion")));
 	public static final RegistryObject<SoundEvent> SLOWCORE = REGISTRY.register("slowcore", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "slowcore")));
+	public static final RegistryObject<SoundEvent> EGEBERUSHMUSIC = REGISTRY.register("egeberushmusic", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("kratif_expension", "egeberushmusic")));
 }

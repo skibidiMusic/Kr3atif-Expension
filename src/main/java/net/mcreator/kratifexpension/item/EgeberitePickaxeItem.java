@@ -41,11 +41,11 @@ public class EgeberitePickaxeItem extends PickaxeItem {
 
     public EgeberitePickaxeItem() {
         super(new Tier() {
-            public int getUses() { return 100; }
-            public float getSpeed() { return 11f; }
+            public int getUses() { return 1000; }
+            public float getSpeed() { return 20f; }
             public float getAttackDamageBonus() { return 5f; }
             public int getLevel() { return 4; }
-            public int getEnchantmentValue() { return 2; }
+            public int getEnchantmentValue() { return 20; }
             public Ingredient getRepairIngredient() { return Ingredient.of(); }
         }, 1, -2.8f, new Item.Properties().fireResistant());
     }
