@@ -20,9 +20,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.ForgeConfig.Server;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -34,7 +36,7 @@ import java.util.ArrayList;
 
 public class BorAdrenalineMobEffect extends MobEffect {
     private static final int DURATION_TICKS = 300; // 15 seconds
-    private static final int BOOST_INTERVAL = 60; // Every 3 seconds (60 ticks)
+    private static final int BOOST_INTERVAL = 30; // Every 3 seconds (60 ticks)
 	private static final Random random = new Random();
 
     private int tickCounter = 0;
@@ -102,6 +104,15 @@ public class BorAdrenalineMobEffect extends MobEffect {
 		}
     }
 
+    private static void spawnLightningEffect(Vec3 pos, ServerLevel _level) {
+        LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
+
+        entityToSpawn.moveTo(pos);
+        entityToSpawn.setVisualOnly(true);
+
+        _level.addFreshEntity(entityToSpawn);
+    }
+
     private void spawnLightning(Level world, BlockPos pos, boolean noRandom, LivingEntity plr) {
 		if (world instanceof ServerLevel _level) {
 			LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
@@ -130,6 +141,18 @@ public class BorAdrenalineMobEffect extends MobEffect {
             for (LivingEntity entity : entities) {
                 if (entity != plr) { // Skip the player
                     entity.hurt(entity.damageSources().lightningBolt(), damageAmount);
+                    entity.setSecondsOnFire(5);
+                    if (entity.fireImmune()) {
+                        entity.hurt(entity.damageSources().onFire(), 2.0F); // Deals 1 heart of fire damage
+                    }
+
+                    // Calculate knockback direction
+                    Vec3 knockbackDirection = entity.position().subtract(plr.position()).normalize().scale(0.5);
+                    entity.setDeltaMovement(knockbackDirection.x, 0.3, knockbackDirection.z);
+                    entity.hurtMarked = true; // Ensure motion updates properly
+
+                    // Spawn lightning effect at the entity's position
+                    spawnLightningEffect(entity.position(), _level);
                 }
             }
 
