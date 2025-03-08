@@ -2,15 +2,20 @@ package net.mcreator.kratifexpension.potion;
 
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.LivingEntity;
@@ -37,9 +42,11 @@ import net.mcreator.kratifexpension.init.KratifExpensionModParticleTypes;
 import net.mcreator.kratifexpension.procedures.AttributeBoostManager;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 @Mod.EventBusSubscriber()
 public class EgebeRushMobEffect extends MobEffect {
@@ -100,7 +107,7 @@ public class EgebeRushMobEffect extends MobEffect {
         double progress = Math.min((double)Math.sqrt((tickCounter / DURATION_TICKS)), 1.0d);
 
         entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 2, (int)((progress) * 4 + 3), false, false));
-        entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 2, (int)((progress) * 10 + 5), false, false));
+        entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 2, (int)((progress) * 5 + 2), false, false));
 
 		//spiral effect
 		boostManager.setProgress(progress, entity);
@@ -194,5 +201,96 @@ public class EgebeRushMobEffect extends MobEffect {
             // If you want to completely remove fall damage, use:
             // event.setDamageMultiplier(0);
         }
+    }
+
+
+    private static final int MINE_RADIUS = 2;
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        Level world = player.level();
+        BlockPos origin = event.getPos();
+        ItemStack heldItem = player.getMainHandItem();
+
+        if (world.isClientSide() || !(world instanceof ServerLevel serverLevel)) return;
+
+        // Check if player has the required effect and is using the right tool
+        if (player.hasEffect(KratifExpensionModMobEffects.EGEBE_RUSH.get()) && isValidTool(heldItem)) { // Change effect if needed
+            BlockState targetState = world.getBlockState(origin);
+            Block targetBlock = targetState.getBlock();
+            Set<BlockPos> minedBlocks = new HashSet<>();
+
+            // If it's a log, chop the whole tree
+            if (isLogBlock(targetBlock)) {
+                chopTree(serverLevel, origin, targetBlock, minedBlocks, player);
+            } 
+            // If it's any other block, mine in a cube
+            else {
+                mineConnectedBlocks(serverLevel, origin, targetBlock, minedBlocks, MINE_RADIUS, player);
+            }
+
+            // Damage the tool based on blocks mined
+            damageTool(player, heldItem, minedBlocks.size());
+        }
+    }
+
+    private static boolean isValidTool(ItemStack item) {
+        Item tool = item.getItem();
+        return tool.isCorrectToolForDrops(Blocks.STONE.defaultBlockState()) || // Pickaxes
+               tool.isCorrectToolForDrops(Blocks.OAK_LOG.defaultBlockState()); // Axes
+    }
+
+    private static boolean isLogBlock(Block block) {
+        return block.defaultBlockState().is(Blocks.OAK_LOG) || block.defaultBlockState().is(Blocks.SPRUCE_LOG) ||
+               block.defaultBlockState().is(Blocks.BIRCH_LOG) || block.defaultBlockState().is(Blocks.JUNGLE_LOG) ||
+               block.defaultBlockState().is(Blocks.ACACIA_LOG) || block.defaultBlockState().is(Blocks.DARK_OAK_LOG) ||
+               block.defaultBlockState().is(Blocks.MANGROVE_LOG);
+    }
+
+    private static void mineConnectedBlocks(ServerLevel world, BlockPos pos, Block targetBlock, Set<BlockPos> mined, int radius, Player player) {
+        if (radius < 0 || mined.contains(pos)) return;
+        BlockState state = world.getBlockState(pos);
+
+        if (state.getBlock() != targetBlock) return; // Only mine if it's the same type
+        mined.add(pos);
+        world.destroyBlock(pos, true, player); // Break block and drop items
+
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                for (int dz = -1; dz <= 1; dz++) {
+                    if (dx != 0 || dy != 0 || dz != 0) {
+                        mineConnectedBlocks(world, pos.offset(dx, dy, dz), targetBlock, mined, radius - 1, player);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void chopTree(ServerLevel world, BlockPos pos, Block logBlock, Set<BlockPos> logs, Player player) {
+        findTreeLogs(world, pos, logBlock, logs);
+
+        for (BlockPos logPos : logs) {
+            world.destroyBlock(logPos, true, player);
+        }
+    }
+
+    private static void findTreeLogs(ServerLevel world, BlockPos pos, Block logBlock, Set<BlockPos> logs) {
+        if (logs.contains(pos)) return;
+
+        BlockState state = world.getBlockState(pos);
+        if (state.getBlock() != logBlock) return;
+
+        logs.add(pos);
+        for (int dy = 1; dy <= 20; dy++) { // Search upward to find the whole tree
+            findTreeLogs(world, pos.above(dy), logBlock, logs);
+        }
+    }
+
+    private static void damageTool(Player player, ItemStack tool, int blocksMined) {
+        if (!tool.isDamageableItem()) return; // Only apply damage if the tool is breakable
+
+        int durabilityLoss = Math.max(1, blocksMined / 3); // Adjust durability loss scaling
+        tool.hurtAndBreak(durabilityLoss, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
     }
 }
